@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentForm</title>
+</head>
+<body>
+    <form th:action="@{/student-process}" th:object="${student}" method="post">
+
+        <!--        <label>Enter the first name : </label>-->
+        <!--        &lt;!&ndash;       لازم تستخدم الاسماء زي ال attributes الموجودة عندنا في اسم studentClass|Entity&ndash;&gt;-->
+        <!--        <input name="firstName" type="text"/>-->
+        <!--        &lt;!&ndash;        <input name="firstName" type="text" placeholder="Enter you first name ">&ndash;&gt;-->
+        <!--        <br>-->
+
+        <!--        <label>Enter the last name : </label>-->
+        <!--        &lt;!&ndash;       لازم تستخدم الاسماء زي ال attributes الموجودة عندنا في اسم studentClass|Entity&ndash;&gt;-->
+        <!--        <input name="lastName" type="text" placeholder="Enter you last name ">-->
+        <!--        <br>-->
+        <!--        <button type="submit" value="Submit Info ">SubmitValue</button>-->
+
+        First name: <input type="text" th:field="*{firstName}">
+        <br>
+        Last name : <input type="text" th:field="*{lastName}">
+
+        <br>
+        <label>Country:</label>
+        <select th:field="${student.country}">
+            <option value="" disabled selected>Select your country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+        </select>
+        <br/>
+        <input type="radio" th:field="*{firstName}" th:value="French">Arabic</input>
+        <input type="radio" th:field="*{language}" th:value="Egnlis">English</input>
+        <input type="radio" th:field="*{language}" th:value="English">Russian</input>
+        <br>
+        <select th:field="${student.language2}">
+            <option value="" disabled selected>Select your language2</option>
+            <option value="Go">Go</option>
+            <option value="Java">Java</option>
+            <option value="C++">C++</option>
+        </select>
+
+        <!-- This will be use to access to attribute in the model -->
+        <!--               This would be used to access to variable in the controller-->
+
+        <input type="checkbox" th:field="*{language2}"
+               th:each=" singleLanguage : ${studentLanguages}"
+               th:value="${singleLanguage}"
+               th:text="${singleLanguage}"/>
+        <br>
+
+<!--we need to make the Student select his system This is so great -->
+        Select What is your system is :
+        <input type="checkbox" th:field="*{system}"
+               th:each=" element : ${studentSystems}"
+               th:value="${element}"
+               th:text="${element}"/>
+
+        <br>
+        <input type="submit" value="submitStudentData">
+    </form>
+
+</body>
+</html>

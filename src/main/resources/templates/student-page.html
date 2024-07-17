@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>studentInformation</title>
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+<body>
+    <h2 class="funny">Student Information And confirmation</h2>
+    The Student First name is :
+    <span th:text="${student.getFirstName()}"></span>
+    <br>
+    The Student last Name is :
+    <span th:text="${student.getLastName()}"></span>
+    <br>
+    The Student language is :
+    <span th:text="${student.getLanguage()}"></span>
+    <br>
+    The Student country is :
+    <span th:text="${student.getCountry()}"></span>
+    <br>
+    The Student language2 is :
+    <span class="funny" th:text="${student.getLanguage2()}"></span>
+
+    The student System is :
+    <span class="funny" th:text="${student.getSystem()}"></span>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AmerPage</title>
+    <!--    th: for just thymeleaf package uaamer This is so great mission -->
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+<body>
+    <title>This is coming from another form </title>
+    <h1>Another Former Data</h1>
+    Welcome :
+    Student Name is : <span th:text=" ${param.studentName}"></span>
+    <br>
+    Welcome to Spring Course The message is : <span th:text="${message}"></span>
+</body>
+</html>
